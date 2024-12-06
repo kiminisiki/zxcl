@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Le Enchanté Café</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo-brand">
+                <img src="Cafelogo.png" alt="Cafe Logo" class="logo">
+                <h1 class="nav-brand">LE ENCHANTÉ CAFÉ</h1>
+            </div>
+            <nav>
+                <a href="#" id="home-link">Home</a>
+                <a href="#" id="reservation-link">Reservation</a>
+                <a href="#" id="contacts-link">Contacts</a>
+                <a href="index.html" id="logout-link">Logout</a>
+            </nav>
+        </div>
+    </header>
+    <main>
+        
+        <section id="home-section">
+            
+            <!-- Cafe front Slide -->
+            <div class="HomeSlides">
+                <img src="cafepicsample1.jpg" style="width:100%">
+            </div>
+            <div class="HomeSlides">
+                <img src="cafepicsample2.jpg" style="width:100%">
+            </div>
+            <div class="HomeSlides">
+                <img src="cafepicsample3.jpg" style="width:100%">
+            </div>
+        
+            <h2 class="formal-heading">Le Enchanté Reservation System</h2>
+            <p class="formal-paragraph">
+                The Le Enchante Reservation System offers a comprehensive platform to efficiently manage and oversee table reservations. 
+                It enables staff to access, confirm, and organize bookings with precision, ensuring seamless operations and an exceptional dining experience for guests. 
+                This system provides real-time updates and an intuitive interface to enhance staff productivity and service quality.   
+            </p>
+            
+         <div class="menu-grid">
+            <div class="menu-item" onclick="openModal('coffee')">
+               <img src="Homeportpic.jpg" alt="Coffee" class="menu-image">
+               <div class="menu-text">
+                  <h3>About the system</h3>
+                 <p>The Le Enchante Reservation System is a sophisticated solution designed to simplify and enhance the reservation process. It allows for seamless management of table bookings, providing real-time updates and ensuring accurate record-keeping. 
+                    With features tailored to optimize efficiency, the system improves operational workflows and ensures a superior experience for both staff and customers.
+                </p>
+             </div>
+        </div>
+
+                <div class="menu-item" onclick="openModal('sweets')">
+                    <img src="Homeportpic2.jpg" alt="Sweets" class="menu-image">
+                    <div class="menu-text">
+                        <h3>Usage of the system</h3>
+                        <p>The Le Enchante Reservation System simplifies table booking by allowing customers to choose their preferred table and time. Staff can efficiently manage reservations, track updates, and ensure smooth service. This system enhances operational efficiency and improves customer satisfaction.</p>
+                    </div>
+                </div>
+
+                <div class="menu-item" onclick="openModal('pastry')">
+                    <img src="Homeportpic3.jpg" alt="Pastry" class="menu-image">
+                    <div class="menu-text">
+                        <h3>Facts</h3>
+                        <p>The Le Enchante Reservation System provides real-time table availability updates and allows customers to select their preferred table, time, and area. Staff can efficiently manage and track reservations, ensuring smooth operations and enhancing customer satisfaction.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="itemModal" class="modal">
+                <div class="modal-content">
+                    <span class="close-button" onclick="closeModal()">&times;</span>
+                    <div class="modal-body">
+                        <div class="modal-image-container">
+                            <img id="modalImage" src="" alt="Menu Item">
+                        </div>
+                        <div class="modal-details">
+                            <h2 id="modalTitle"></h2>
+                            <p id="modalDescription"></p>
+                            <div class="modal-info">
+                                <div class="info-section">
+                            
+                                    <ul id="modalVarieties"></ul>
+                                </div>
+                                <div class="info-section">
+                                    
+                                    <p id="modalPrices"></p>
+                                </div>
+                                <div class="info-section">
+                                    
+                                    <p id="modalNotes"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        
+
+        <section id="reservation-section" style="display: none;">
+            <h2 class="formal-heading">Reservation Calendar</h2>
+            <p class="formal-paragraph">View all customer reservations and select a date below:</p>
+        
+            <!-- Calendar Section -->
+            <div class="calendar-container">
+                <div class="calendar-header">
+                    <span class="month-selector" onclick="toggleMonthDropdown()">
+                        <span id="current-month">January 2024</span>
+                        <span class="arrow">&#9660;</span>
+                    </span>
+                    <div id="month-dropdown" class="month-dropdown hidden"></div>
+                </div>
+                <div id="calendar" class="calendar-grid"></div>
+            </div>
+
+            <!-- Notes Section -->
+            <div id="notes-container">
+                <h3>Important Reservation Notes</h3>
+                <textarea id="note-input" placeholder="Write: Customer Name, Customer Contact, and Date," rows="3"></textarea>
+                <button id="save-note-btn">Save Note</button>
+                <ul id="saved-notes"></ul>
+            </div>
+        </section>
+
+        <!-- Contacts Section -->
+        <section id="contacts-section" style="display: none;">
+            <div class="contacts-container">
+                <div class="contacts-header">
+                    <h2>Customer Contacts</h2>
+                </div>
+                
+                <div class="error" id="error-message">Please fill in all fields</div>
+                
+                <div class="contact-form">
+                    <input type="text" id="name-input" placeholder="Name">
+                    <input type="tel" id="phone-input" placeholder="Contact Number">
+                    <button class="add-btn" onclick="addContact()">Add</button>
+                </div>
+                
+                <div class="contacts-list" id="contacts-list">
+                    
+                </div>
+                <div class="cafe-contact-info">
+                    <h3>Le Enchanté Café Contact Information</h3>
+                    <div class="cafe-contact-details">
+                        <div class="contact-detail-item">
+                            <h4>Address</h4>
+                            <p>123 Enchanted Street</p>
+                            <p>Paris District, 75001</p>
+                        </div>
+                        
+                        <div class="contact-detail-item">
+                            <h4>Contact</h4>
+                            <p>Phone: +33 1 23 45 67 89</p>
+                            <p>Email: info@leenchantecafe.com</p>
+                        </div>
+                        
+                        <div class="contact-detail-item">
+                            <h4>Hours</h4>
+                            <p>Mon-Fri: 7:00 AM - 9:00 PM</p>
+                            <p>Sat-Sun: 8:00 AM - 10:00 PM</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </section>
+    </main>
+    <script src="dashboard.js"></script>
+</body>
+</html>

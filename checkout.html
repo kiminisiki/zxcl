@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout History - Le Enchanté Café</title>
+    <link rel="stylesheet" href="checkout.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo-brand">
+                <img src="Cafelogo.png" alt="Cafe Logo" class="logo">
+                <h2 class="nav-brand">LE ENCHANTÉ CAFÉ</h2>
+            </div>
+            <a href="reservation-details.html" class="back-btn">Back</a>
+        </div>
+    </header>
+
+    <h1>Checkout History</h1>
+
+    <div class="filter-section">
+        <div>
+            <label for="dateFilter">Filter by Date:</label>
+            <input type="date" id="dateFilter">
+
+            <label for="nameFilter">Filter by Name:</label>
+            <input type="text" id="nameFilter">
+        </div>
+
+        <div>
+            <button onclick="printCheckoutHistory()">Print History</button>
+            <button onclick="resetFilters()">Reset Filters</button>
+            <button onclick="clearCheckoutHistory()">Clear History</button>
+        </div>
+    </div>
+
+    <table id="checkoutHistoryTable">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Date</th>
+                <th>Time In</th>
+                <th>Time Out</th>
+                <th>Guests</th>
+                <th>Contact</th>
+                <th>Table Number</th>
+            </tr>
+        </thead>
+        <tbody id="checkoutHistoryBody">
+            <tr>
+                <td colspan="7" class="no-history">No checkout history found.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script src="checkout.js"></script>
+</body>
+</html>

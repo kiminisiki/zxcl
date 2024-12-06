@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le Enchanté Café - Reservation</title>
+    <link rel="stylesheet" href="reservation.css">
+</head>
+<body>
+
+<header>
+    <div class="header-content">
+        <div class="logo-brand">
+            <img src="Cafelogo.png" alt="Cafe Logo" class="logo">
+            <h1 id="le-enchanté-café" class="nav-brand">LE ENCHANTÉ CAFÉ</h1>
+        </div>
+        <a href="dashboard.html#reservation-section" class="back-btn">Back</a>
+    </div>
+</header>
+
+<div class="reservation-form">
+    <div class="action-buttons">
+        <button class="action-btn add-reservation-btn">ADD Reservation</button>
+        <button class="action-btn edit-reservation-btn">EDIT Reservation</button>
+        <button class="action-btn cancel-reservation-btn">CANCEL Reservation</button>
+        <button class="action-btn checkout-reservation-btn">Check-Out Reservation</button>
+        <button class="action-btn" onclick="window.location.href='checkout.html'">Checkout History</button> 
+    </div>
+
+
+         
+    <!-- Form Section -->
+    <div class="form-section" style="display: none;">
+        <div class="form-container">
+            <div class="form-left">
+                <div class="form-group">
+                    <label>Time Slot</label>
+                    <select id="timeSlot">
+                        <option value="" disabled selected>Select a time slot</option>
+                        <option value="9:00 AM - 12:00 PM">9:00 AM - 12:00 PM</option>
+                        <option value="1:00 PM - 3:00 PM">1:00 PM - 3:00 PM</option>
+                        <option value="4:00 PM - 7:00 PM">4:00 PM - 7:00 PM</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Customer's Name</label>
+                    <input type="text" id="customerName" placeholder="Enter name">
+                </div>
+                <div class="form-group">
+                    <label>Pax</label>
+                    <input type="text" id="pax" placeholder="Enter number of guests">
+                </div>
+                <div class="form-group">
+                    <label>Contact No.</label>
+                    <input type="text" id="contactNumber" placeholder="Enter contact number">
+                </div>
+                <div class="form-actions">
+                    <button class="add-btn">Save</button>
+                    <button class="cancel-btn">Cancel</button>
+                </div>
+            </div>
+
+            <div class="form-right">
+                <h3>Cashier</h3>
+                <div class="legend">
+                    <div class="legend-item">
+                        <div class="legend-color cashier-unavailable"></div>
+                        <span>Unavailable</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color cashier-available"></div>
+                        <span>Available</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color cashier-selected"></div>
+                        <span>Selected</span>
+                    </div>
+                </div>
+                <div id="cashierGrid" class="cashier-grid">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+
+    <!-- Reservation Table Section -->
+    <div class="reservation-table">
+        <div class="date-header">
+            <span id="current-date"></span>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>NAME</th>
+                    <th>TIME</th>
+                    <th>PAX</th>
+                    <th>NO.</th>
+                    <th>TABLE NO.</th>
+                </tr>
+            </thead>
+            <tbody id="reservationTableBody">
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script src="reservation.js"></script>
+</body>
+</html>
